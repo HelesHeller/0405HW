@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>First Task</title>
+</head>
+<body>
+<h1>Let`s test</h1>
+<button onclick="startTest()">Start Test</button>
+
+<script>
+  let questions=["R u drunk?",
+    "You love books?",
+    "Do you like coffee?"];
+  let scores = [10,5,7];
+
+  let totalScore=0;
+  let currentQuestion =0;
+
+  function startTest(){
+    totalScore=0;
+    currentQuestion=0;
+    askQuestion();
+  }
+
+  function askQuestion(){
+    let answer = prompt(questions[currentQuestion]);
+    if(answer !== null){
+      answer=answer.toLowerCase();
+      if( answer==="yep" || answer==="yes"){
+        totalScore += scores[currentQuestion];
+      }
+      else if(answer==="nah" || answer==="no"){
+        totalScore -= scores[currentQuestion];
+      }
+      if (currentQuestion<questions.length-1){
+        currentQuestion++
+        askQuestion();
+      }else {
+        showResult();
+      }
+    }
+  }
+  function showResult(){
+    alert("Your score: "+totalScore);
+  }
+
+</script>
+
+</body>
+</html>

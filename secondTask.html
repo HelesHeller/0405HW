@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Second Task</title>
+</head>
+<body>
+<h1>Введите ваше имя</h1>
+
+<input type="text" id="fullNameInput">
+<button onclick="chekFullName()">Проверить имя</button>
+
+<script>
+function chekFullName(){
+  let fullName = document.getElementById("fullNameInput").value;
+  let invalidChars = /[^\w\s.а-яА-Я]/;
+  if (invalidChars.test(fullName)){
+    alert("Но но но, что-то тут не так!");
+  }
+  else {
+    alert("Всё верно!")
+  }
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Введите HTTP-адрес</h1>
+<input type="text" id="urlInput">
+<button onclick="parseURL()">Разбить</button>
+
+<script>
+  function parseURL() {
+    let url = document.getElementById("urlInput").value;
+    let urlObject = new URL(url);
+
+    let protocol = urlObject.protocol;
+    let host = urlObject.host;
+    let path = urlObject.pathname;
+    let filename = path.split('/').pop(); // Получение имени файла из пути
+    let queryString = urlObject.search;
+
+    alert("Протокол: " + protocol +
+      "\nХост: " + host +
+      "\nПуть: " + path +
+      "\nИмя файла: " + filename +
+      "\nСтрока запроса: " + queryString);
+  }
+</script>
+</body>
+</html>
